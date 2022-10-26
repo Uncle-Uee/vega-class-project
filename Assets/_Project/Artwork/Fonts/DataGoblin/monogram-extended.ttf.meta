@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e1119ff81c5ff294ca43ca78fc97217e
+guid: 151bb8986ac155944b7a763f4f0f93ce
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Toriko
+  - monogramextended
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

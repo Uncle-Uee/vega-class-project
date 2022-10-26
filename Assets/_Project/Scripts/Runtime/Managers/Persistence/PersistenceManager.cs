@@ -1,10 +1,11 @@
+using System;
 using System.IO;
 using UnityEngine;
 using Vega.ScriptableObjects;
 
 namespace Vega.Managers
 {
-    public class PersistenceManager : ManagersBase<PersistenceManager>
+    public class PersistenceManager : ServiceManagerBase<PersistenceManager>
     {
         #region FIELDS
 
@@ -24,6 +25,12 @@ namespace Vega.Managers
         #endregion
 
         #region UNITY METHODS
+
+        private void Awake()
+        {
+            // Load Game Settings upon Creation of this Instance.
+            LoadGameSettings();
+        }
 
         #endregion
 

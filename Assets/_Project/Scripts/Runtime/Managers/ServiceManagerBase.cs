@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Vega.Managers
 {
-    public abstract class ManagersBase<T> : MonoBehaviour, IService where T : IService
+    public abstract class ServiceManagerBase<T> : MonoBehaviour, IService where T : IService
     {
         #region FIELDS
 

@@ -28,15 +28,11 @@ namespace Vega.UI
         public Slider MusicVolumeSlider;
         public Slider SoundVolumeSlider;
 
+        private bool _isDirty = false;
+
         #endregion
 
         #region UNITY METHODS
-
-        public override void Awake()
-        {
-            base.Awake();
-            ServiceLocator.GetService<PersistenceManager>().LoadGameSettings();
-        }
 
         private void OnEnable()
         {
@@ -45,6 +41,11 @@ namespace Vega.UI
             SoundVolumeSlider.value  = GameSettings.CurrentSoundVolume;
 
             BackButton.onClick.AddListener(OnBackButtonClick);
+        }
+
+        private void OnDisable()
+        {
+            BackButton.onClick.RemoveAllListeners();
         }
 
         private void Start()
@@ -60,6 +61,8 @@ namespace Vega.UI
 
         private void OnBackButtonClick()
         {
+            // Only Write new Game Settings if a Change was made.
+            if (!_isDirty) return;
             ServiceLocator.GetService<PersistenceManager>().SaveGameSettings();
         }
 
@@ -71,18 +74,30 @@ namespace Vega.UI
         {
             GameSettings.CurrentMasterVolume = value;
             MasterAudioMixer.audioMixer.SetFloat("MasterVolume", value);
+            SettingsAreDirty();
         }
 
         public void OnMusicVolumeChanged(float value)
         {
             GameSettings.CurrentMusicVolume = value;
             MusicAudioMixer.audioMixer.SetFloat("MusicVolume", value);
+            SettingsAreDirty();
         }
 
         public void OnSoundVolumeChanged(float value)
         {
             GameSettings.CurrentSoundVolume = value;
             SoundAudioMixer.audioMixer.SetFloat("SoundVolume", value);
+            SettingsAreDirty();
+        }
+
+        #endregion
+
+        #region HELPER METHODS
+
+        private void SettingsAreDirty()
+        {
+            _isDirty = true;
         }
 
         #endregion
