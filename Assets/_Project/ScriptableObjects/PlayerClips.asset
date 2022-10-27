@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 868bad30de7d46a8ba6d0dbfe36d048f, type: 3}
+  m_Name: PlayerClips
+  m_EditorClassIdentifier: 
+  idleBack: {fileID: 7400000, guid: b100d05636f360140aa64f0f4b73ca34, type: 2}
+  idleFront: {fileID: 7400000, guid: 8cc2117f7f8c5c64daad77a2a046ba95, type: 2}
