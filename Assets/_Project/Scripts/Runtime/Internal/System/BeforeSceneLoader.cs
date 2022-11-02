@@ -1,14 +1,9 @@
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace Vega.System
 {
     internal static class BeforeSceneLoader
     {
-        #region FIELDS
-
-        #endregion
-
         #region METHODS
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]

@@ -61,9 +61,10 @@ namespace Vega.UI
 
         private void OnBackButtonClick()
         {
+            DeactivateCanvas();
+            CallingController.ActivateCanvas();
             // Only Write new Game Settings if a Change was made.
-            if (!_isDirty) return;
-            ServiceLocator.GetService<PersistenceManager>().SaveGameSettings();
+            if (_isDirty) ServiceLocator.GetService<PersistenceManager>().SaveGameSettings();
         }
 
         #endregion

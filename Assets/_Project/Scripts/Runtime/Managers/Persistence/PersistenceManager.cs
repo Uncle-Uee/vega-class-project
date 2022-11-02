@@ -22,6 +22,11 @@ namespace Vega.Managers
             get => Path.Combine(Application.persistentDataPath, $"{GameSettings.name}.json");
         }
 
+        private string PlayerDataPath
+        {
+            get => $"{Path.Combine(Application.persistentDataPath, "Saves")}";
+        }
+
         #endregion
 
         #region UNITY METHODS
@@ -34,7 +39,25 @@ namespace Vega.Managers
 
         #endregion
 
-        #region METHODS
+        #region PLAYER DATA METHODS
+
+        public void SavePlayerData(string filename)
+        {
+            if (!Directory.Exists(PlayerDataPath)) Directory.CreateDirectory(PlayerDataPath);
+            string outputFile = Path.Combine(PlayerDataPath, $"{filename}.json");
+            string json       = JsonUtility.ToJson(PlayerData, true);
+            File.WriteAllText(outputFile, json);
+        }
+
+        public void LoadPlayerData(string filename)
+        {
+            string json = File.ReadAllText(string.IsNullOrEmpty(Path.GetExtension(filename)) ? $"{filename}.json" : filename);
+            JsonUtility.FromJsonOverwrite(json, PlayerData);
+        }
+
+        #endregion
+
+        #region GAME SETTINGS METHODS
 
         public void SaveGameSettings()
         {

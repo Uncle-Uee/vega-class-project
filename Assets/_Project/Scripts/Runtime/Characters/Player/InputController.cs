@@ -5,18 +5,28 @@ namespace Vega.Character
 {
     public class InputController : MonoBehaviour
     {
-        public float Horizontal => Input.GetAxis("Horizontal");
-        public float Vertical => Input.GetAxis("Vertical");
-        
+        public float Horizontal
+        {
+            get => Input.GetAxis("Horizontal");
+        }
+        public float Vertical
+        {
+            get => Input.GetAxis("Vertical");
+        }
+
         // up = true
-        [HideInInspector] public UnityEvent<bool> verticalDirectionChange; 
-        
+        [HideInInspector]
+        public UnityEvent<bool> verticalDirectionChange;
+
         // right = true
-        [HideInInspector] public UnityEvent<bool> horizontalDirectionChange;
+        [HideInInspector]
+        public UnityEvent<bool> horizontalDirectionChange;
 
 
         [Tooltip("Threshold for changing direction")]
-        [SerializeField] [Range(0, 0.8f)] private float sensitivity;
+        [SerializeField]
+        [Range(0, 0.8f)]
+        private float sensitivity;
 
         private void Update()
         {
@@ -28,7 +38,7 @@ namespace Vega.Character
             {
                 verticalDirectionChange.Invoke(false);
             }
-            
+
             if (Input.GetAxis("Horizontal") > sensitivity)
             {
                 horizontalDirectionChange.Invoke(true);

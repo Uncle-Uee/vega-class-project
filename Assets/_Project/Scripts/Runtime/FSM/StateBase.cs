@@ -8,13 +8,10 @@
         {
             _fsm = fsm;
         }
-        
+
         public abstract void OnEnter();
         public abstract void OnUpdate(float delta);
         public abstract void OnFixedUpdate(float fixedDeltaTime);
         public abstract void OnExit();
-
-        
-
     }
 }

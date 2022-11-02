@@ -24,6 +24,9 @@ namespace Vega.ScriptableObjects
         [Header("Player Location Information")]
         public Vector2 LastPosition = Vector2.zero;
 
+        [Header("Save Preview Image")]
+        public string ImageString = string.Empty;
+
         #endregion
 
         #region METHODS

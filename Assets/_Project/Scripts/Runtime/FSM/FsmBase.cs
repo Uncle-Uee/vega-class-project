@@ -8,7 +8,8 @@ namespace StateMachine
     {
         public StateBase CurrentState;
         private readonly Dictionary<string, StateBase> _states = new();
-        [SerializeField] private UnityEvent<StateBase> stateChange;
+        [SerializeField]
+        private UnityEvent<StateBase> stateChange;
 
         protected void AddState(StateBase state)
         {
@@ -33,15 +34,15 @@ namespace StateMachine
                 return null;
             }
 
-            
+
             var state = _states[typeof(T).Name];
 
             CurrentState?.OnExit();
             CurrentState = state;
             CurrentState.OnEnter();
-            
+
             stateChange.Invoke(state);
-            return (T) state;
+            return (T)state;
         }
     }
 }

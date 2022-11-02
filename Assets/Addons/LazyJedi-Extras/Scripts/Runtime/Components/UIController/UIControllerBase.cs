@@ -5,7 +5,7 @@ namespace LazyJedi.Components
 {
     public abstract class UIControllerBase : MonoBehaviour
     {
-        #region VARIABLES
+        #region FIELDS
 
         [Header("Current Canvas")]
         public Canvas CurrentCanvas;

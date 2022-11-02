@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7c69d8d33938704da75afc37c052256, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  Name: 
+  Name: Dwanky
   Money: 0
   Level: 0
   CurrentExperience: 0
   CurrentHealth: 0
   CurrentMana: 0
-  LastPosition: {x: 0, y: 0}
+  LastPosition: {x: 8.5, y: 4.75}
+  ImageString: 

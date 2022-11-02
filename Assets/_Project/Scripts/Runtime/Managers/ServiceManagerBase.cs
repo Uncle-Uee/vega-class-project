@@ -5,20 +5,30 @@ namespace Vega.Managers
 {
     public abstract class ServiceManagerBase<T> : MonoBehaviour, IService where T : IService
     {
-        #region FIELDS
+        #region UNITY METHODS
+
+        private void OnEnable()
+        {
+            ServiceLocator.AddService(this);
+            DoOnEnable();
+        }
+
+        private void OnDisable()
+        {
+            ServiceLocator.RemoveService(this);
+            DoOnDisable();
+        }
 
         #endregion
 
-        #region UNITY METHODS
+        #region CUSTOM UNITY EVENT METHODS
 
-        public virtual void OnEnable()
+        public virtual void DoOnEnable()
         {
-            ServiceLocator.AddService(this);
         }
 
-        public virtual void OnDisable()
+        public virtual void DoOnDisable()
         {
-            ServiceLocator.RemoveService(this);
         }
 
         #endregion
